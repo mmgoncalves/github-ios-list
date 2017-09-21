@@ -6,6 +6,7 @@ target 'github-ios-list' do
   use_frameworks!
   pod 'Alamofire', '~> 4.5'
   pod 'Kingfisher', '~> 4.0'
+  pod 'SVProgressHUD', '~> 2.2'
 
   # Pods for github-ios-list
 

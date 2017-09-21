@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class ViewController: UIViewController {
+class RepositoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
