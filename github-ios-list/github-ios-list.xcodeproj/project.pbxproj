@@ -175,7 +175,6 @@
 		C34B72601F73F4F5002C0515 /* github-ios-list */ = {
 			isa = PBXGroup;
 			children = (
-				C3A74B2C1F74D93400D4450E /* mocks */,
 				C366769F1F744E5600E4C094 /* helper */,
 				C36676901F744B6200E4C094 /* network */,
 				C366768D1F744B3D00E4C094 /* model */,
@@ -314,13 +313,6 @@
 			sourceTree = "<group>";
 		};
 		C3A74B251F74C84C00D4450E /* mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = mocks;
-			sourceTree = "<group>";
-		};
-		C3A74B2C1F74D93400D4450E /* mocks */ = {
 			isa = PBXGroup;
 			children = (
 				C3A74B261F74C88500D4450E /* JSONRepository_mock.json */,

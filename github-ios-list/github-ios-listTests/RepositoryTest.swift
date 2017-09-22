@@ -23,15 +23,18 @@ class RepositoryTest: XCTestCase {
     
     func test_should_decode_json_to_repository_object() {
         
-//        let jsonFile = Bundle.main.path(forResource: "JSONrepository_mock", ofType: "json")
-        let jsonUrl = Bundle.main.url(forResource: "JSONRepository_mock", withExtension: "json")
+        let bundle = Bundle.allBundles.filter({ $0.path(forResource: "JSONRepository_mock", ofType: "json") != nil }).first
+        let jsonUrl = bundle?.url(forResource: "JSONRepository_mock", withExtension: "json")
         let jsonData = try! Data(contentsOf: jsonUrl!)
         
         do {
-            let myTest = try JSONDecoder().decode(JSONRepositoryItem.self, from: jsonData)
-            print(myTest)
+            let repository = try JSONDecoder().decode(JSONRepositoryItem.self, from: jsonData)
+            
+            XCTAssert(repository.items.count == 2)
+            XCTAssertEqual(repository.items.first?.name, "Alamofire")
+            XCTAssertEqual(repository.items.last?.name, "awesome-ios")
         } catch {
-            print(error)
+            XCTFail()
         }
         
     }
