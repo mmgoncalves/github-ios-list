@@ -24,6 +24,14 @@
 		C366769A1F744CF100E4C094 /* PullRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36676991F744CF100E4C094 /* PullRequestViewModel.swift */; };
 		C366769C1F744D1A00E4C094 /* RepositoryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366769B1F744D1A00E4C094 /* RepositoryDAO.swift */; };
 		C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366769D1F744D3800E4C094 /* PullRequestDAO.swift */; };
+		C3A74B1B1F7490AA00D4450E /* RepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1A1F7490AA00D4450E /* RepositoryTest.swift */; };
+		C3A74B1D1F749A1800D4450E /* JSONRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1C1F749A1800D4450E /* JSONRepository.swift */; };
+		C3A74B1F1F749A4600D4450E /* JSONPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1E1F749A4600D4450E /* JSONPullRequest.swift */; };
+		C3A74B221F74A7C900D4450E /* JSONOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B211F74A7C900D4450E /* JSONOwner.swift */; };
+		C3A74B241F74A92F00D4450E /* JSONRepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B231F74A92F00D4450E /* JSONRepositoryItem.swift */; };
+		C3A74B271F74C88500D4450E /* JSONRepository_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = C3A74B261F74C88500D4450E /* JSONRepository_mock.json */; };
+		C3A74B291F74C94B00D4450E /* JSONPullRequest_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = C3A74B281F74C94B00D4450E /* JSONPullRequest_mock.json */; };
+		C3A74B2B1F74CB8100D4450E /* JSONUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B2A1F74CB8100D4450E /* JSONUser.swift */; };
 		C44FF48254449A9AF2BEF2AE /* Pods_github_ios_listTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2587F67C4B0F7B0AC0C05A9 /* Pods_github_ios_listTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +86,14 @@
 		C3A74B171F748B0D00D4450E /* OwnerEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OwnerEntity+CoreDataProperties.swift"; path = "github-ios-list/OwnerEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C3A74B181F748B0D00D4450E /* OwnerEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OwnerEntity+CoreDataClass.swift"; path = "github-ios-list/OwnerEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C3A74B191F748B0E00D4450E /* RepositoryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoryEntity+CoreDataClass.swift"; path = "github-ios-list/RepositoryEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C3A74B1A1F7490AA00D4450E /* RepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTest.swift; sourceTree = "<group>"; };
+		C3A74B1C1F749A1800D4450E /* JSONRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRepository.swift; sourceTree = "<group>"; };
+		C3A74B1E1F749A4600D4450E /* JSONPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPullRequest.swift; sourceTree = "<group>"; };
+		C3A74B211F74A7C900D4450E /* JSONOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONOwner.swift; sourceTree = "<group>"; };
+		C3A74B231F74A92F00D4450E /* JSONRepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRepositoryItem.swift; sourceTree = "<group>"; };
+		C3A74B261F74C88500D4450E /* JSONRepository_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JSONRepository_mock.json; sourceTree = "<group>"; };
+		C3A74B281F74C94B00D4450E /* JSONPullRequest_mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JSONPullRequest_mock.json; sourceTree = "<group>"; };
+		C3A74B2A1F74CB8100D4450E /* JSONUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUser.swift; sourceTree = "<group>"; };
 		C4972719EF756DE2AC225A18 /* Pods_github_ios_list.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github_ios_list.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3015C007CB27E0C0BA9749 /* Pods-github-ios-list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-ios-list.debug.xcconfig"; path = "Pods/Target Support Files/Pods-github-ios-list/Pods-github-ios-list.debug.xcconfig"; sourceTree = "<group>"; };
 		F3F82F6BA44D8A883ABE50F9 /* Pods-github-ios-listUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-ios-listUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-github-ios-listUITests/Pods-github-ios-listUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +175,7 @@
 		C34B72601F73F4F5002C0515 /* github-ios-list */ = {
 			isa = PBXGroup;
 			children = (
+				C3A74B2C1F74D93400D4450E /* mocks */,
 				C366769F1F744E5600E4C094 /* helper */,
 				C36676901F744B6200E4C094 /* network */,
 				C366768D1F744B3D00E4C094 /* model */,
@@ -178,8 +195,10 @@
 		C34B72781F73F4F5002C0515 /* github-ios-listTests */ = {
 			isa = PBXGroup;
 			children = (
+				C3A74B251F74C84C00D4450E /* mocks */,
 				C34B72791F73F4F5002C0515 /* github_ios_listTests.swift */,
 				C34B727B1F73F4F5002C0515 /* Info.plist */,
+				C3A74B1A1F7490AA00D4450E /* RepositoryTest.swift */,
 			);
 			path = "github-ios-listTests";
 			sourceTree = "<group>";
@@ -223,6 +242,7 @@
 		C366768D1F744B3D00E4C094 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C3A74B201F749A5A00D4450E /* json */,
 				C366768F1F744B5C00E4C094 /* DAO */,
 				C366768E1F744B5000E4C094 /* coreData */,
 			);
@@ -279,6 +299,34 @@
 			children = (
 			);
 			path = helper;
+			sourceTree = "<group>";
+		};
+		C3A74B201F749A5A00D4450E /* json */ = {
+			isa = PBXGroup;
+			children = (
+				C3A74B1C1F749A1800D4450E /* JSONRepository.swift */,
+				C3A74B1E1F749A4600D4450E /* JSONPullRequest.swift */,
+				C3A74B211F74A7C900D4450E /* JSONOwner.swift */,
+				C3A74B231F74A92F00D4450E /* JSONRepositoryItem.swift */,
+				C3A74B2A1F74CB8100D4450E /* JSONUser.swift */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		C3A74B251F74C84C00D4450E /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mocks;
+			sourceTree = "<group>";
+		};
+		C3A74B2C1F74D93400D4450E /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C3A74B261F74C88500D4450E /* JSONRepository_mock.json */,
+				C3A74B281F74C94B00D4450E /* JSONPullRequest_mock.json */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +455,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A74B291F74C94B00D4450E /* JSONPullRequest_mock.json in Resources */,
+				C3A74B271F74C88500D4450E /* JSONRepository_mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,12 +560,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-github-ios-list/Pods-github-ios-list-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,10 +630,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A74B1D1F749A1800D4450E /* JSONRepository.swift in Sources */,
 				C366769C1F744D1A00E4C094 /* RepositoryDAO.swift in Sources */,
+				C3A74B221F74A7C900D4450E /* JSONOwner.swift in Sources */,
 				C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */,
 				C36676981F744CD700E4C094 /* RepositoryViewModel.swift in Sources */,
+				C3A74B1F1F749A4600D4450E /* JSONPullRequest.swift in Sources */,
+				C3A74B241F74A92F00D4450E /* JSONRepositoryItem.swift in Sources */,
 				C36676961F744C2E00E4C094 /* PullRequestTableViewCell.swift in Sources */,
+				C3A74B2B1F74CB8100D4450E /* JSONUser.swift in Sources */,
 				C36676891F744B1800E4C094 /* PullRequestTableViewController.swift in Sources */,
 				C34B72641F73F4F5002C0515 /* RepositoryViewController.swift in Sources */,
 				C34B72621F73F4F5002C0515 /* AppDelegate.swift in Sources */,
@@ -596,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C34B727A1F73F4F5002C0515 /* github_ios_listTests.swift in Sources */,
+				C3A74B1B1F7490AA00D4450E /* RepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

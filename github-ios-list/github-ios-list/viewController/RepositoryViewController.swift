@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import Alamofire
-import Kingfisher
 
-class RepositoryViewController: UIViewController {
+class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,7 +20,20 @@ class RepositoryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "repositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
+        
+        return cell
+    }
 
 }
 

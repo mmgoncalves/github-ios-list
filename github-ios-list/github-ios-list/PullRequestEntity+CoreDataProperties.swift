@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension PullRequestEntity {
+extension PullRequestEntity: Codable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PullRequestEntity> {
         return NSFetchRequest<PullRequestEntity>(entityName: "PullRequestEntity")

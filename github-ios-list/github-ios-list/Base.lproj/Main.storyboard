@@ -153,6 +153,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Repositories" id="INm-fx-JkL"/>
                     <connections>
+                        <outlet property="tableView" destination="Krf-OK-oSo" id="Gat-CG-qb2"/>
                         <segue destination="eYB-UW-nMn" kind="show" identifier="pullRequestSegue" id="vcl-o0-UBt"/>
                     </connections>
                 </viewController>

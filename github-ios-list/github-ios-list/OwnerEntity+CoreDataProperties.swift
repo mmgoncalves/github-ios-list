@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension OwnerEntity {
+extension OwnerEntity: Codable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<OwnerEntity> {
         return NSFetchRequest<OwnerEntity>(entityName: "OwnerEntity")
