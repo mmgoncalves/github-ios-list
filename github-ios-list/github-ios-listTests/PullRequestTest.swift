@@ -1,15 +1,15 @@
 //
-//  RepositoryTest.swift
+//  PullRequestTest.swift
 //  github-ios-listTests
 //
-//  Created by Mateus Marques on 21/09/17.
+//  Created by Mateus Marques on 22/09/17.
 //  Copyright © 2017 Mateus Marques. All rights reserved.
 //
 
 import XCTest
 @testable import github_ios_list
 
-class RepositoryTest: XCTestCase {
+class PullRequestTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,18 +21,18 @@ class RepositoryTest: XCTestCase {
         super.tearDown()
     }
     
-    func test_should_decode_json_to_repository_object() {
-        
-        if let bundle = Bundle.allBundles.filter({ $0.path(forResource: "JSONRepository_mock", ofType: "json") != nil }).first {
-            let jsonUrl = bundle.url(forResource: "JSONRepository_mock", withExtension: "json")
+    func test_should_decode_json_to_pullRequest_object() {
+        if let bundle = Bundle.allBundles.filter({ $0.url(forResource: "JSONPullRequest_mock", withExtension: "json") != nil }).first {
+            let jsonUrl = bundle.url(forResource: "JSONPullRequest_mock", withExtension: "json")
             let jsonData = try! Data(contentsOf: jsonUrl!)
             
             do {
-                let repository = try JSONDecoder().decode(JSONRepositoryItem.self, from: jsonData)
+                let pullRequest = try JSONDecoder().decode([JSONPullRequest].self, from: jsonData)
                 
-                XCTAssert(repository.items.count == 2)
-                XCTAssertEqual(repository.items.first?.name, "Alamofire")
-                XCTAssertEqual(repository.items.last?.name, "awesome-ios")
+                XCTAssert(pullRequest.count == 2)
+                XCTAssertEqual(pullRequest.first?.id, 140723716)
+                XCTAssertEqual(pullRequest.last?.id, 139034869)
+                
             } catch {
                 XCTFail()
             }
