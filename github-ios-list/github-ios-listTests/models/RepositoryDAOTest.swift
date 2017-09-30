@@ -47,7 +47,12 @@ class RepositoryDAOTest: XCTestCase {
 //    }
     
     func test_should_find_repository() {
-        
+        RepositoryDAO.save(repositories: self.repositories, inContext: self.context) { error in
+            XCTAssertNil(error, "Error should be nil")
+            
+            let repositories = RepositoryDAO.all(inContext: self.context)
+            XCTAssertEqual(repositories?.count, 2)
+        }
     }
     
 }

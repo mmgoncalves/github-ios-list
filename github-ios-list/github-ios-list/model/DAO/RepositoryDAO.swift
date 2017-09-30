@@ -39,7 +39,14 @@ class RepositoryDAO {
     }
     
     static func all(inContext: NSManagedObjectContext) -> [RepositoryEntity]? {
+        let fetchRequest: NSFetchRequest<RepositoryEntity> = RepositoryEntity.fetchRequest()
         
-        return []
+        do {
+            let repositories = try inContext.fetch(fetchRequest) as [RepositoryEntity]
+            return repositories
+        } catch {
+            print("Error to find repositories: \(error)")
+            return nil
+        }
     }
 }
