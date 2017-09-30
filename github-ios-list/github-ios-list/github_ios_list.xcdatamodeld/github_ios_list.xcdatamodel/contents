@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="OwnerEntity" representedClassName="OwnerEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="avatarUrl" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="id" value="value"/>
+            </userInfo>
+        </attribute>
+        <relationship name="pullRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestEntity" inverseName="owner" inverseEntity="PullRequestEntity" syncable="YES"/>
+        <relationship name="repositories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RepositoryEntity" inverseName="owner" inverseEntity="RepositoryEntity" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="PullRequestEntity" representedClassName="PullRequestEntity" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OwnerEntity" syncable="YES"/>
-        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepositoryEntity" inverseName="pullRequest" inverseEntity="RepositoryEntity" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OwnerEntity" inverseName="pullRequests" inverseEntity="OwnerEntity" syncable="YES"/>
+        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepositoryEntity" inverseName="pullRequests" inverseEntity="RepositoryEntity" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="RepositoryEntity" representedClassName="RepositoryEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="forks" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="stars" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OwnerEntity" syncable="YES"/>
-        <relationship name="pullRequest" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestEntity" inverseName="repository" inverseEntity="PullRequestEntity" syncable="YES"/>
+        <attribute name="forks" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="stars" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OwnerEntity" inverseName="repositories" inverseEntity="OwnerEntity" syncable="YES"/>
+        <relationship name="pullRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestEntity" inverseName="repository" inverseEntity="PullRequestEntity" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="RepositoryEntity" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="OwnerEntity" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="PullRequestEntity" positionX="-36" positionY="9" width="128" height="150"/>
+        <element name="OwnerEntity" positionX="-261" positionY="-288" width="128" height="118"/>
+        <element name="PullRequestEntity" positionX="-36" positionY="9" width="128" height="148"/>
+        <element name="RepositoryEntity" positionX="-513" positionY="-144" width="128" height="28"/>
     </elements>
 </model>
