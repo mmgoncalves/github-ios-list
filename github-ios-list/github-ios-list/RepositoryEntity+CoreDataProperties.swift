@@ -2,7 +2,7 @@
 //  RepositoryEntity+CoreDataProperties.swift
 //  
 //
-//  Created by Mateus Marques on 30/09/17.
+//  Created by Mateus Marques on 01/10/17.
 //
 //
 
