@@ -9,6 +9,7 @@
 import CoreData
 
 class PullRequestDAO {
+    
     static func save(pullRequests: [JSONPullRequest], inContext: NSManagedObjectContext, completion: @escaping (_ error: Error?) -> Void) {
         let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -22,6 +23,7 @@ class PullRequestDAO {
                 pullRequestEntity.title = pullRequest.title
                 pullRequestEntity.url = pullRequest.url
                 pullRequestEntity.body = pullRequest.body
+                pullRequestEntity.repositoryId = pullRequest.repo.id
                 
                 if let date = Date.from(dateString: pullRequest.created_at) {
                     pullRequestEntity.createdAt = date
@@ -42,12 +44,27 @@ class PullRequestDAO {
     }
     
     static func all(inContext: NSManagedObjectContext) -> [PullRequestEntity]? {
+        let fetchRequest: NSFetchRequest<PullRequestEntity> = PullRequestEntity.fetchRequest()
         
-        return []
+        do {
+            let pullRequests = try inContext.fetch(fetchRequest) as [PullRequestEntity]
+            return pullRequests
+        } catch {
+            print("Error to get pull requests: \(error)")
+            return nil
+        }
     }
     
     static func find(repositoryId: Int64, inContext: NSManagedObjectContext) -> [PullRequestEntity]? {
+        let fetchRequest: NSFetchRequest<PullRequestEntity> = PullRequestEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "repositoryId = %@", argumentArray: [repositoryId])
         
-        return []
+        do {
+            let pullRequests = try inContext.fetch(fetchRequest)
+            return pullRequests
+        } catch {
+            print("Error to find pull request: \(error)")
+            return nil
+        }
     }
 }

@@ -34,14 +34,14 @@
      "body": "### Issue Link :link:\r\n#2180\r\n\r\n### Goals :soccer:\r\nThe primary goal of the PR is to add response serializers that use `JSONDecoder` and `PropertyListDecoder` to generically decode responses. However, that lead to a major refactor of the response serialization protocols and their implementations.\r\n\r\n### Implementation Details :construction:\r\nFunctionally, the serializers are the same, they've just been encapsulated into classes, rather than being generated closures. This allows they to be more easily used, and the awkward extensions on `Request` that generated the closures have been removed. Also, the serializations protocols have had their requirements changed from a serialization closure to a function. This allows for far less awkward usage, as well as providing superior semantics with argument labels. \r\n\r\n### Testing Details :mag:\r\nTests have been added for the decodable serializers and response methods. Additionally, some of the tests have been refactored.\r\n",
      "created_at": "2017-09-03T04:01:57Z",
      "repo": {
-         "id": 21700699,
-         "name": "awesome-ios",
+         "id": 22458259,
+         "name": "Alamofire",
          "owner": {
-             "login": "vsouza",
-             "id": 484656,
-             "avatar_url": "https://avatars2.githubusercontent.com/u/484656?v=4"
+             "login": "Alamofire",
+             "id": 7774181,
+             "avatar_url": "https://avatars3.githubusercontent.com/u/7774181?v=4"
          },
-         "stargazers_count": 21674,
-         "forks": 3648
+         "stargazers_count": 25269,
+         "forks": 4386
      }
 }]

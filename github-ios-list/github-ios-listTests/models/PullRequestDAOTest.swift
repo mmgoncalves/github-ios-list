@@ -38,11 +38,44 @@ class PullRequestDAOTest: XCTestCase {
     }
     
     func test_should_get_all_pullRequests() {
+        guard let _ = self.pullRequests else {
+            XCTFail("PullRequests should not be nil")
+            return
+        }
         
+        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+            XCTAssertNil(error)
+            
+            let allPullRquests = PullRequestDAO.all(inContext: self.context)
+            XCTAssertNotNil(allPullRquests)
+            XCTAssertEqual(allPullRquests?.count, 2)
+            
+            XCTAssertNotNil(allPullRquests?.first?.id)
+            XCTAssertNotNil(allPullRquests?.first?.title)
+            XCTAssertNotNil(allPullRquests?.first?.url)
+            XCTAssertNotNil(allPullRquests?.first?.body)
+            XCTAssertNotNil(allPullRquests?.first?.repositoryId)
+            XCTAssertNotNil(allPullRquests?.first?.createdAt)
+            XCTAssertNotNil(allPullRquests?.first?.owner)
+        }
     }
     
     func test_should_find_PullRequest_by_id() {
-      
+        guard let _ = self.pullRequests else {
+            XCTFail("PullRequests should not be nil")
+            return
+        }
+        
+        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+            XCTAssertNil(error)
+            let repositoryId: Int64 = 22458259
+            
+            let foundPullRequests = PullRequestDAO.find(repositoryId: repositoryId, inContext: self.context)
+            
+            XCTAssertNotNil(foundPullRequests)
+            XCTAssertEqual(foundPullRequests?.count, 2)
+            XCTAssertEqual(foundPullRequests?.first?.repositoryId, repositoryId)
+        }
     }
     
 }
