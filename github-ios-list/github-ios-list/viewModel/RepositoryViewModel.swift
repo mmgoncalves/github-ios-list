@@ -9,5 +9,15 @@
 import Foundation
 
 class RepositoryViewModel {
+
+    init() {
+        
+    }
     
+    func getRepositories() -> [RepositoryEntity]? {
+        //get repositories from coreData
+        //if coreData is empty, create a operation to get repositories from API
+        //save the api response and return the repositories 
+        return []
+    }
 }
