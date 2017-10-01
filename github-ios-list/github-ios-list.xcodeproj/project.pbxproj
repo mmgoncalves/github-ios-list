@@ -34,6 +34,7 @@
 		C3A74B2B1F74CB8100D4450E /* JSONUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B2A1F74CB8100D4450E /* JSONUser.swift */; };
 		C3B88C1D1F80000B004FF370 /* PullRequestDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B88C1C1F80000B004FF370 /* PullRequestDAOTest.swift */; };
 		C3CEE82F1F811D6600EE39BA /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE82E1F811D6600EE39BA /* Date+Additions.swift */; };
+		C3CEE8311F81277F00EE39BA /* StubPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE8301F81277F00EE39BA /* StubPullRequest.swift */; };
 		C3D225C61F7DD71C000D9860 /* RepositoryDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225C51F7DD71C000D9860 /* RepositoryDAOTest.swift */; };
 		C3D225C91F7DD995000D9860 /* StubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225C81F7DD995000D9860 /* StubRepository.swift */; };
 		C3D225CB1F7DE3AD000D9860 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225CA1F7DE3AD000D9860 /* CoreDataHelper.swift */; };
@@ -102,6 +103,7 @@
 		C3A74B2A1F74CB8100D4450E /* JSONUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUser.swift; sourceTree = "<group>"; };
 		C3B88C1C1F80000B004FF370 /* PullRequestDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDAOTest.swift; sourceTree = "<group>"; };
 		C3CEE82E1F811D6600EE39BA /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
+		C3CEE8301F81277F00EE39BA /* StubPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPullRequest.swift; sourceTree = "<group>"; };
 		C3D225C51F7DD71C000D9860 /* RepositoryDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDAOTest.swift; sourceTree = "<group>"; };
 		C3D225C81F7DD995000D9860 /* StubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRepository.swift; sourceTree = "<group>"; };
 		C3D225CA1F7DE3AD000D9860 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			children = (
 				C3D225C81F7DD995000D9860 /* StubRepository.swift */,
 				C3D225CA1F7DE3AD000D9860 /* CoreDataHelper.swift */,
+				C3CEE8301F81277F00EE39BA /* StubPullRequest.swift */,
 			);
 			path = stubs;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3CEE8311F81277F00EE39BA /* StubPullRequest.swift in Sources */,
 				C3D225CB1F7DE3AD000D9860 /* CoreDataHelper.swift in Sources */,
 				C3B88C1D1F80000B004FF370 /* PullRequestDAOTest.swift in Sources */,
 				C3EBDB6C1F75586400FF9071 /* PullRequestTest.swift in Sources */,

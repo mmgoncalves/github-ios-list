@@ -13,10 +13,12 @@ import CoreData
 class PullRequestDAOTest: XCTestCase {
     
     var context: NSManagedObjectContext!
+    var pullRequests: [JSONPullRequest]!
     
     override func setUp() {
         super.setUp()
         self.context = CoreDataHelper.setUpInMemoryManagedObjectContext()
+        self.pullRequests = StubPullRequest.getPullRequests()
     }
     
     override func tearDown() {
@@ -25,15 +27,22 @@ class PullRequestDAOTest: XCTestCase {
     }
     
     func test_should_save_pullRequest() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        guard let _ = self.pullRequests else {
+            XCTFail("PullRequests should not be nil")
+            return
+        }
+        
+        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func test_should_get_all_pullRequests() {
+        
     }
     
     func test_should_find_PullRequest_by_id() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+      
     }
     
 }

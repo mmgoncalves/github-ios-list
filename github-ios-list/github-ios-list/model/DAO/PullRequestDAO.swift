@@ -45,4 +45,9 @@ class PullRequestDAO {
         
         return []
     }
+    
+    static func find(repositoryId: Int64, inContext: NSManagedObjectContext) -> [PullRequestEntity]? {
+        
+        return []
+    }
 }
