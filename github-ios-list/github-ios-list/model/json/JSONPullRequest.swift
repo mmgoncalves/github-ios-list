@@ -15,4 +15,5 @@ struct JSONPullRequest: Codable {
     var body: String
     var title: String
     var user: JSONUser
+    var repo: JSONRepository
 }

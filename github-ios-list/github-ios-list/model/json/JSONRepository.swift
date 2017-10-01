@@ -14,5 +14,4 @@ struct JSONRepository: Codable {
     var forks: Int64
     var stargazers_count: Int64
     var owner: JSONOwner
-//    var pullRequest: [JSONPullRequest]
 }
