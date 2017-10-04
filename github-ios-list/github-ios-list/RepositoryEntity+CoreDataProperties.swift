@@ -2,7 +2,7 @@
 //  RepositoryEntity+CoreDataProperties.swift
 //  
 //
-//  Created by Mateus Marques on 01/10/17.
+//  Created by Mateus Marques on 03/10/17.
 //
 //
 
@@ -20,6 +20,7 @@ extension RepositoryEntity {
     @NSManaged public var id: Int64
     @NSManaged public var name: String?
     @NSManaged public var stars: Int64
+    @NSManaged public var fullName: String?
     @NSManaged public var owner: OwnerEntity?
     @NSManaged public var pullRequests: NSSet?
 

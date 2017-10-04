@@ -4,6 +4,7 @@
       {
       "id": 22458259,
       "name": "Alamofire",
+      "full_name": "Alamofire/alamofire",
       "owner": {
           "login": "Alamofire",
           "id": 7774181,
@@ -15,6 +16,7 @@
       {
       "id": 21700699,
       "name": "awesome-ios",
+      "full_name": "vsouza/awesome-ios",
       "owner": {
           "login": "vsouza",
           "id": 484656,

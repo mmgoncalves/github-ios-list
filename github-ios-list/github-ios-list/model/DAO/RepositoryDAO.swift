@@ -21,6 +21,7 @@ class RepositoryDAO {
                 let repositoryEntity = RepositoryEntity(context: privateContext)
                 repositoryEntity.id = repository.id
                 repositoryEntity.name = repository.name
+                repositoryEntity.fullName = repository.full_name
                 repositoryEntity.forks = repository.forks
                 repositoryEntity.stars = repository.stargazers_count
                 

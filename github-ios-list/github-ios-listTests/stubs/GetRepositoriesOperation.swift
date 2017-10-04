@@ -24,7 +24,7 @@ class GetRepositoriesOperation: NetworkOperations {
             return
         }
         
-        requester.makeRequest(<#T##urlConvertible: URLRequestConvertible##URLRequestConvertible#>) { (response) in
+        requester.makeRequest(RepositoryService.searchRepositories(page: 1)) { (response) in
             guard let items = response.data["items"] as? Data else {
                 if let onFinish = self.onFinish {
                     onFinish(response.error)
