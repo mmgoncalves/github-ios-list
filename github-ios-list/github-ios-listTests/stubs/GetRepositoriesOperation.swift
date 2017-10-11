@@ -12,11 +12,13 @@ import Alamofire
 class GetRepositoriesOperation: NetworkOperations {
     
     var managedObjectContext: NSManagedObjectContext!
-    var onFinish: ((_ error: LocalizedError?) -> Void)?
+    var page: Int!
+    var onFinish: ((_ error: AppError?) -> Void)?
     
-    init(context: NSManagedObjectContext, requester: AlamofireRequester) {
+    init(page: Int, context: NSManagedObjectContext, requester: AlamofireRequester) {
         super.init(requester: requester)
         self.managedObjectContext = context
+        self.page = page
     }
     
     override func main() {
@@ -24,10 +26,10 @@ class GetRepositoriesOperation: NetworkOperations {
             return
         }
         
-        requester.makeRequest(RepositoryService.searchRepositories(page: 1)) { (response) in
+        requester.makeRequest(RepositoryService.searchRepositories(page: self.page)) { response in
             guard let items = response.data["items"] as? Data else {
                 if let onFinish = self.onFinish {
-                    onFinish(response.error)
+                    onFinish(RepositoryError.parseToObject)
                 }
                 self.finish()
                 return
@@ -38,12 +40,16 @@ class GetRepositoriesOperation: NetworkOperations {
                 
                 RepositoryDAO.save(repositories: repositories, inContext: self.managedObjectContext) { error in
                     if let onFinish = self.onFinish {
-                        onFinish(nil)
+                        if let localizedDescription = error?.localizedDescription {
+                            onFinish(RepositoryError.saveRepositories(localizedError: localizedDescription))
+                        } else {
+                            onFinish(nil)
+                        }
                     }
                 }
             } catch {
                 if let onFinish = self.onFinish {
-                    onFinish(nil)
+                    onFinish(RepositoryError.parseToObject)
                 }
                 
                 self.finish()

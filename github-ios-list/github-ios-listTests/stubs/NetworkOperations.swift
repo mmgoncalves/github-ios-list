@@ -15,6 +15,15 @@ protocol AlamofireRequester {
 }
 
 class NetworkOperations: Operation {
+    
+    var requester: AlamofireRequester
+    var isRunning: Bool = false
+    var isDone: Bool = false
+    
+    init(requester: AlamofireRequester) {
+        self.requester = requester
+    }
+    
     override var isAsynchronous: Bool {
         return true
     }
@@ -25,15 +34,6 @@ class NetworkOperations: Operation {
     
     override var isFinished: Bool {
         return isDone
-    }
-    
-    var requester: AlamofireRequester
-    var isRunning: Bool = false
-    var isDone: Bool = false
-    
-    
-    init(requester: AlamofireRequester) {
-        self.requester = requester
     }
     
     override func start() {
