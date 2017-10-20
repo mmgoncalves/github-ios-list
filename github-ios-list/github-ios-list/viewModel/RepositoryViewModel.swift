@@ -9,53 +9,30 @@
 import CoreData
 import Alamofire
 
+protocol RepositoryViewModelDelegate {
+    func onFinish() -> Void
+}
+
 class RepositoryViewModel {
     
     var managedObjectContext: NSManagedObjectContext!
-    var operationQueue: OperationQueue = OperationQueue()
-    var repositories: [RepositoryEntity]!
+    var repositories: [RepositoryEntity]! = []
+    
+    var delegate: RepositoryViewModelDelegate?
 
     required init?(context: NSManagedObjectContext) {
         self.managedObjectContext = context
-        self.operationQueue.maxConcurrentOperationCount = 1
         
+        self.getRepositories()
         self.repositories = RepositoryDAO.all(inContext: self.managedObjectContext)
     }
     
-    func getRepositories(completion: @escaping (_ error: Error?) -> Void ) {
-        //get repositories from coreData
-        //if coreData is empty, create a operation to get repositories from API
-        
-        self.fetchRpositories() { jsonRepositories in
-            if let repositories = jsonRepositories {
-                RepositoryDAO.save(repositories: repositories, inContext: self.managedObjectContext) { error in
-                    print("Finish saving repositories: \(error)")
-                    completion(error)
-                }
+    private func getRepositories() {
+        RepositoryService.sync(page: 1, context: self.managedObjectContext) { error in
+            if error == nil {
+                self.delegate?.onFinish()
             }
         }
     }
     
-    private func fetchRpositories(completion: @escaping ([JSONRepository]?) -> Void) {
-        Alamofire.request(
-            URL(string: "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1")!,
-            method: .get
-        )
-        .validate()
-        .responseJSON { (response) -> Void in
-            guard response.result.isSuccess, let data = response.data else {
-                print("Error while fetching remote rooms: \(response.result.error)")
-                completion(nil)
-                return
-            }
-            
-            do {
-                let jsonRepositoryItem = try JSONDecoder().decode(JSONRepositoryItem.self, from: data)
-                completion(jsonRepositoryItem.items)
-            } catch {
-                print("Malformed data received from fetchAllRooms service")
-                completion(nil)
-            }
-        }
-    }
 }

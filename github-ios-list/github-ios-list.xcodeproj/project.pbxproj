@@ -37,8 +37,6 @@
 		C3CE9C601F832896005CBB3E /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CE9C5F1F832896005CBB3E /* RepositoryService.swift */; };
 		C3CEE82F1F811D6600EE39BA /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE82E1F811D6600EE39BA /* Date+Additions.swift */; };
 		C3CEE8311F81277F00EE39BA /* StubPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE8301F81277F00EE39BA /* StubPullRequest.swift */; };
-		C3CEE8331F81A6D400EE39BA /* GetRepositoriesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE8321F81A6D400EE39BA /* GetRepositoriesOperation.swift */; };
-		C3CEE8351F81A86000EE39BA /* NetworkOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CEE8341F81A86000EE39BA /* NetworkOperations.swift */; };
 		C3D225C61F7DD71C000D9860 /* RepositoryDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225C51F7DD71C000D9860 /* RepositoryDAOTest.swift */; };
 		C3D225C91F7DD995000D9860 /* StubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225C81F7DD995000D9860 /* StubRepository.swift */; };
 		C3D225CB1F7DE3AD000D9860 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D225CA1F7DE3AD000D9860 /* CoreDataHelper.swift */; };
@@ -108,11 +106,9 @@
 		C3A74B2A1F74CB8100D4450E /* JSONUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUser.swift; sourceTree = "<group>"; };
 		C3AC7D221F8506AF0094CC5B /* RepositoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelTest.swift; sourceTree = "<group>"; };
 		C3B88C1C1F80000B004FF370 /* PullRequestDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDAOTest.swift; sourceTree = "<group>"; };
-		C3CE9C5F1F832896005CBB3E /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepositoryService.swift; path = "github-ios-list/extensions/RepositoryService.swift"; sourceTree = SOURCE_ROOT; };
+		C3CE9C5F1F832896005CBB3E /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepositoryService.swift; path = "github-ios-list/network/RepositoryService.swift"; sourceTree = SOURCE_ROOT; };
 		C3CEE82E1F811D6600EE39BA /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
 		C3CEE8301F81277F00EE39BA /* StubPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPullRequest.swift; sourceTree = "<group>"; };
-		C3CEE8321F81A6D400EE39BA /* GetRepositoriesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetRepositoriesOperation.swift; path = "github-ios-listTests/stubs/GetRepositoriesOperation.swift"; sourceTree = SOURCE_ROOT; };
-		C3CEE8341F81A86000EE39BA /* NetworkOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkOperations.swift; path = "github-ios-listTests/stubs/NetworkOperations.swift"; sourceTree = SOURCE_ROOT; };
 		C3D225C51F7DD71C000D9860 /* RepositoryDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDAOTest.swift; sourceTree = "<group>"; };
 		C3D225C81F7DD995000D9860 /* StubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRepository.swift; sourceTree = "<group>"; };
 		C3D225CA1F7DE3AD000D9860 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -299,27 +295,9 @@
 		C36676901F744B6200E4C094 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				C36676921F744B7200E4C094 /* operation */,
-				C36676911F744B6900E4C094 /* route */,
-			);
-			path = network;
-			sourceTree = "<group>";
-		};
-		C36676911F744B6900E4C094 /* route */ = {
-			isa = PBXGroup;
-			children = (
 				C3CE9C5F1F832896005CBB3E /* RepositoryService.swift */,
 			);
-			path = route;
-			sourceTree = "<group>";
-		};
-		C36676921F744B7200E4C094 /* operation */ = {
-			isa = PBXGroup;
-			children = (
-				C3CEE8321F81A6D400EE39BA /* GetRepositoriesOperation.swift */,
-				C3CEE8341F81A86000EE39BA /* NetworkOperations.swift */,
-			);
-			path = operation;
+			path = network;
 			sourceTree = "<group>";
 		};
 		C366769F1F744E5600E4C094 /* helper */ = {
@@ -690,12 +668,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3CEE8331F81A6D400EE39BA /* GetRepositoriesOperation.swift in Sources */,
 				C3A74B1D1F749A1800D4450E /* JSONRepository.swift in Sources */,
 				C3CEE82F1F811D6600EE39BA /* Date+Additions.swift in Sources */,
 				C366769C1F744D1A00E4C094 /* RepositoryDAO.swift in Sources */,
 				C3A74B221F74A7C900D4450E /* JSONOwner.swift in Sources */,
-				C3CEE8351F81A86000EE39BA /* NetworkOperations.swift in Sources */,
 				C3CE9C601F832896005CBB3E /* RepositoryService.swift in Sources */,
 				C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */,
 				C36676981F744CD700E4C094 /* RepositoryViewModel.swift in Sources */,

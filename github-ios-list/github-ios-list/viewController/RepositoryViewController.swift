@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,9 +21,7 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         self.managedObjectContext = appDelegate?.persistentContainer.viewContext
         self.viewModel = RepositoryViewModel(context: self.managedObjectContext)
-        self.viewModel.getRepositories() { error in
-            print(error)
-        }
+        self.viewModel.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +41,11 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "repositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
         
         return cell
+    }
+    
+    //MARK: repositoryViewModelDelegate
+    func onFinish() {
+        tableView.reloadData()
     }
 
 }
