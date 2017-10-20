@@ -6,8 +6,33 @@
 //  Copyright © 2017 Mateus Marques. All rights reserved.
 //
 
-import Foundation
+import CoreData
+import Alamofire
+
+protocol RepositoryViewModelDelegate {
+    func onFinish() -> Void
+}
 
 class RepositoryViewModel {
+    
+    var managedObjectContext: NSManagedObjectContext!
+    var repositories: [RepositoryEntity]! = []
+    
+    var delegate: RepositoryViewModelDelegate?
+
+    required init?(context: NSManagedObjectContext) {
+        self.managedObjectContext = context
+        
+        self.getRepositories()
+        self.repositories = RepositoryDAO.all(inContext: self.managedObjectContext)
+    }
+    
+    private func getRepositories() {
+        RepositoryService.sync(page: 1, context: self.managedObjectContext) { error in
+            if error == nil {
+                self.delegate?.onFinish()
+            }
+        }
+    }
     
 }

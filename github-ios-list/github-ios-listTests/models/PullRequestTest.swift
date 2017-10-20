@@ -34,7 +34,7 @@ class PullRequestTest: XCTestCase {
                 XCTAssertEqual(pullRequest.last?.id, 139034869)
                 
             } catch {
-                XCTFail()
+                XCTFail(error.localizedDescription)
             }
         } else {
             XCTFail()

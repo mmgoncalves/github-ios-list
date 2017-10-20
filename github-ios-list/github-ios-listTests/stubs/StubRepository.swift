@@ -25,4 +25,14 @@ class StubRepository {
             return nil
         }
     }
+    
+    static func getRepositoryData() -> Data? {
+        if let bundle = Bundle.allBundles.filter({ $0.path(forResource: "JSONRepository_mock", ofType: "json") != nil }).first {
+            let jsonUrl = bundle.url(forResource: "JSONRepository_mock", withExtension: "json")
+            let jsonData = try! Data(contentsOf: jsonUrl!)
+            return jsonData
+        } else {
+            return nil
+        }
+    }
 }

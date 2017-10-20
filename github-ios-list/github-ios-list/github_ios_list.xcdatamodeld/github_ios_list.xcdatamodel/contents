@@ -28,6 +28,7 @@
     </entity>
     <entity name="RepositoryEntity" representedClassName="RepositoryEntity" syncable="YES" codeGenerationType="class">
         <attribute name="forks" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="stars" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -42,6 +43,6 @@
     <elements>
         <element name="OwnerEntity" positionX="-261" positionY="-288" width="128" height="118"/>
         <element name="PullRequestEntity" positionX="-36" positionY="9" width="128" height="163"/>
-        <element name="RepositoryEntity" positionX="-513" positionY="-144" width="128" height="133"/>
+        <element name="RepositoryEntity" positionX="-513" positionY="-144" width="128" height="150"/>
     </elements>
 </model>

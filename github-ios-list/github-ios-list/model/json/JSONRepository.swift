@@ -11,6 +11,7 @@ import Foundation
 struct JSONRepository: Codable {
     var id: Int64
     var name: String
+    var full_name: String
     var forks: Int64
     var stargazers_count: Int64
     var owner: JSONOwner
