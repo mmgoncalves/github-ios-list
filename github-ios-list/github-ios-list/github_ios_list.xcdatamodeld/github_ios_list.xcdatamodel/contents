@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="OwnerEntity" representedClassName="OwnerEntity" syncable="YES" codeGenerationType="class">
         <attribute name="avatarUrl" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -31,6 +31,7 @@
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stars" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OwnerEntity" inverseName="repositories" inverseEntity="OwnerEntity" syncable="YES"/>
         <relationship name="pullRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestEntity" inverseName="repository" inverseEntity="PullRequestEntity" syncable="YES"/>
@@ -43,6 +44,6 @@
     <elements>
         <element name="OwnerEntity" positionX="-261" positionY="-288" width="128" height="118"/>
         <element name="PullRequestEntity" positionX="-36" positionY="9" width="128" height="163"/>
-        <element name="RepositoryEntity" positionX="-513" positionY="-144" width="128" height="150"/>
+        <element name="RepositoryEntity" positionX="-513" positionY="-144" width="128" height="165"/>
     </elements>
 </model>
