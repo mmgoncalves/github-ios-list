@@ -13,13 +13,16 @@ class RepositoryViewModel {
     
     var managedObjectContext: NSManagedObjectContext!
     var operationQueue: OperationQueue = OperationQueue()
+    var repositories: [RepositoryEntity]!
 
     required init?(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         self.operationQueue.maxConcurrentOperationCount = 1
+        
+        self.repositories = RepositoryDAO.all(inContext: self.managedObjectContext)
     }
     
-    func getRepositories() -> [RepositoryEntity]? {
+    func getRepositories(completion: @escaping (_ error: Error?) -> Void ) {
         //get repositories from coreData
         //if coreData is empty, create a operation to get repositories from API
         
@@ -27,11 +30,10 @@ class RepositoryViewModel {
             if let repositories = jsonRepositories {
                 RepositoryDAO.save(repositories: repositories, inContext: self.managedObjectContext) { error in
                     print("Finish saving repositories: \(error)")
+                    completion(error)
                 }
             }
         }
-        //save the api response and return the repositories 
-        return []
     }
     
     private func fetchRpositories(completion: @escaping ([JSONRepository]?) -> Void) {
