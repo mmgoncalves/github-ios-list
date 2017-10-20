@@ -28,9 +28,11 @@ class RepositoryViewModel {
     }
     
     private func getRepositories() {
-        RepositoryService.sync(page: 1, context: self.managedObjectContext) { error in
-            if error == nil {
-                self.delegate?.onFinish()
+        if Generic.isConnectedToNetwork() {
+            RepositoryService.sync(page: 2, context: self.managedObjectContext) { error in
+                if error == nil {
+                    self.delegate?.onFinish()
+                }
             }
         }
     }

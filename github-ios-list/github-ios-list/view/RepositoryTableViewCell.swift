@@ -17,8 +17,7 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var startLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
-    
-    
+    var page: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
