@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
-class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate {
+class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: RepositoryViewModel!
+    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult>!
     var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
@@ -22,6 +23,8 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         self.managedObjectContext = appDelegate?.persistentContainer.viewContext
         self.viewModel = RepositoryViewModel(context: self.managedObjectContext)
         self.viewModel.delegate = self
+        
+        initializeFetchResultController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,12 +32,30 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    private func initializeFetchResultController() {
+        let request = NSFetchRequest<RepositoryEntity>(entityName: "RepositoryEntity")
+        let sortByStars = NSSortDescriptor(key: "stars", ascending: false)
+        request.sortDescriptors = [sortByStars]
+        fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil) as! NSFetchedResultsController<NSFetchRequestResult>
+        fetchResultController.delegate = self
+        
+        do {
+            try fetchResultController.performFetch()
+        } catch let error {
+            print(error)
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchResultController.sections!.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.repositories.count
+        guard let sections = fetchResultController.sections else {
+            fatalError("FetchResultController is empty")
+        }
+        
+        return sections[section].numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +63,11 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
             return UITableViewCell()
         }
         
-        let repository = viewModel.repositories[indexPath.row]
+        guard let repository = fetchResultController?.object(at: indexPath) as? RepositoryEntity else {
+            fatalError("FetchResutController has error")
+        }
+        
+//        let repository = viewModel.repositories[indexPath.row]
         cell.authorLabel.text = repository.owner?.name
         cell.nameRepository.text = repository.name
         cell.descriptionRepository.text = ""
