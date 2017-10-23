@@ -13,7 +13,7 @@ struct RepositoryService {
     
     static func sync(page: Int, context: NSManagedObjectContext, completion: @escaping (_ error: AppError?) -> Void) {
         
-        Alamofire.request("https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1", method: .get)
+        Alamofire.request("https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=\(page)", method: .get)
             .validate()
             .responseJSON { (dataResponse) in
                 guard dataResponse.result.isSuccess, let data = dataResponse.data else {

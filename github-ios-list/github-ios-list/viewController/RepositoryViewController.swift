@@ -38,14 +38,22 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "repositoryTableViewCell", for: indexPath) as! RepositoryTableViewCell
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "repositoryTableViewCell", for: indexPath) as? RepositoryTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let repository = viewModel.repositories[indexPath.row]
+        cell.authorLabel.text = repository.owner?.name
+        cell.nameRepository.text = repository.name
+        cell.descriptionRepository.text = ""
+        cell.startLabel.text = repository.stars.description
+        cell.forksLabel.text = repository.forks.description
         
         return cell
     }
     
     //MARK: repositoryViewModelDelegate
     func onFinish() {
-        
         tableView.reloadData()
     }
 
