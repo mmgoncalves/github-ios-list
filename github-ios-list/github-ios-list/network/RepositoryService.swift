@@ -25,7 +25,7 @@ struct RepositoryService {
                 do {
                     let jsonRepositoryItem = try JSONDecoder().decode(JSONRepositoryItem.self, from: data)
                     
-                    RepositoryDAO.save(repositories: jsonRepositoryItem.items, inContext: context) { error in
+                    RepositoryDAO.save(repositories: jsonRepositoryItem.items, page: page, inContext: context) { error in
                         if let error = error {
                             completion(RepositoryError.saveRepositories(localizedError: error.localizedDescription))
                         } else {

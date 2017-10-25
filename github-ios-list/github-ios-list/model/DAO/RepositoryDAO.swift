@@ -11,7 +11,7 @@ import CoreData
 
 class RepositoryDAO {
     
-    static func save(repositories: [JSONRepository], inContext: NSManagedObjectContext, completion: @escaping (_ error: Error?) -> Void) {
+    static func save(repositories: [JSONRepository], page: Int, inContext: NSManagedObjectContext, completion: @escaping (_ error: Error?) -> Void) {
         let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         privateContext.parent = inContext
@@ -24,6 +24,7 @@ class RepositoryDAO {
                 repositoryEntity.fullName = repository.full_name
                 repositoryEntity.forks = repository.forks
                 repositoryEntity.stars = repository.stargazers_count
+                repositoryEntity.page = Int16(page)
                 
                 let owner = OwnerEntity(context: privateContext)
                 owner.id = repository.owner.id
