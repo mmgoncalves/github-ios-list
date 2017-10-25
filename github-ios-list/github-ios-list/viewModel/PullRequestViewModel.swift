@@ -6,8 +6,15 @@
 //  Copyright © 2017 Mateus Marques. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
 class PullRequestViewModel {
     
+    var managedObjectContext: NSManagedObjectContext!
+    var repository: RepositoryEntity!
+    
+    required init?(context: NSManagedObjectContext, repository: RepositoryEntity) {
+        self.managedObjectContext = context
+        self.repository = repository
+    }
 }

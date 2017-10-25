@@ -18,6 +18,9 @@ class RepositoryViewModel {
     var managedObjectContext: NSManagedObjectContext!
     var repositories: [RepositoryEntity]! = []
     
+    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult>!
+    var fetchResultControllerDelegate: NSFetchedResultsControllerDelegate!
+    
     var delegate: RepositoryViewModelDelegate?
 
     required init?(context: NSManagedObjectContext) {
@@ -34,6 +37,20 @@ class RepositoryViewModel {
                     self.delegate?.onFinish()
                 }
             }
+        }
+    }
+    
+    func initializeFetchResultController() {
+        let request = NSFetchRequest<RepositoryEntity>(entityName: "RepositoryEntity")
+        let sortByStars = NSSortDescriptor(key: "stars", ascending: false)
+        request.sortDescriptors = [sortByStars]
+        fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil) as! NSFetchedResultsController<NSFetchRequestResult>
+        fetchResultController.delegate = self.fetchResultControllerDelegate
+        
+        do {
+            try fetchResultController.performFetch()
+        } catch let error {
+            print(error)
         }
     }
     

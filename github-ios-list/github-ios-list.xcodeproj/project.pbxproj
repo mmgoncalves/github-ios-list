@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		07A3121147EC8DE712BAEF56 /* Pods_github_ios_listUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C8984A5B5690946A1AF570 /* Pods_github_ios_listUITests.framework */; };
 		09B3A6CC67DE632358665E06 /* Pods_github_ios_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4972719EF756DE2AC225A18 /* Pods_github_ios_list.framework */; };
+		C31FFD2B1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FFD2A1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift */; };
+		C31FFD2D1FA1508600015BF5 /* RepositoryViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FFD2C1FA1508600015BF5 /* RepositoryViewController+Delegate.swift */; };
 		C34B72621F73F4F5002C0515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B72611F73F4F5002C0515 /* AppDelegate.swift */; };
 		C34B72641F73F4F5002C0515 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B72631F73F4F5002C0515 /* RepositoryViewController.swift */; };
 		C34B72671F73F4F5002C0515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34B72651F73F4F5002C0515 /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 		67C8984A5B5690946A1AF570 /* Pods_github_ios_listUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github_ios_listUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA5C0F76796589A22CE0CE1 /* Pods-github-ios-listUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-ios-listUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-github-ios-listUITests/Pods-github-ios-listUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2587F67C4B0F7B0AC0C05A9 /* Pods_github_ios_listTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github_ios_listTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C31FFD2A1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryViewController+DataSource.swift"; sourceTree = "<group>"; };
+		C31FFD2C1FA1508600015BF5 /* RepositoryViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryViewController+Delegate.swift"; sourceTree = "<group>"; };
 		C34B725E1F73F4F5002C0515 /* github-ios-list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-ios-list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C34B72611F73F4F5002C0515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C34B72631F73F4F5002C0515 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C31FFD291FA14F9F00015BF5 /* repositoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C34B72631F73F4F5002C0515 /* RepositoryViewController.swift */,
+				C31FFD2A1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift */,
+				C31FFD2C1FA1508600015BF5 /* RepositoryViewController+Delegate.swift */,
+			);
+			path = repositoryViewController;
+			sourceTree = "<group>";
+		};
 		C34B72551F73F4F4002C0515 = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +252,7 @@
 		C366768A1F744B2400E4C094 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				C34B72631F73F4F5002C0515 /* RepositoryViewController.swift */,
+				C31FFD291FA14F9F00015BF5 /* repositoryViewController */,
 				C36676881F744B1800E4C094 /* PullRequestTableViewController.swift */,
 			);
 			path = viewController;
@@ -678,6 +692,7 @@
 				C3CE9C601F832896005CBB3E /* RepositoryService.swift in Sources */,
 				C38AB6CF1F9A413500156F13 /* Generic.swift in Sources */,
 				C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */,
+				C31FFD2B1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift in Sources */,
 				C36676981F744CD700E4C094 /* RepositoryViewModel.swift in Sources */,
 				C38089181F7FEFE800F8FE80 /* NSManagedObjectContext+Additions.swift in Sources */,
 				C3A74B1F1F749A4600D4450E /* JSONPullRequest.swift in Sources */,
@@ -689,6 +704,7 @@
 				C34B72621F73F4F5002C0515 /* AppDelegate.swift in Sources */,
 				C3D773B41F81CA70003F1ED4 /* Errors.swift in Sources */,
 				C36676941F744C1A00E4C094 /* RepositoryTableViewCell.swift in Sources */,
+				C31FFD2D1FA1508600015BF5 /* RepositoryViewController+Delegate.swift in Sources */,
 				C34B726A1F73F4F5002C0515 /* github_ios_list.xcdatamodeld in Sources */,
 				C366769A1F744CF100E4C094 /* PullRequestViewModel.swift in Sources */,
 			);

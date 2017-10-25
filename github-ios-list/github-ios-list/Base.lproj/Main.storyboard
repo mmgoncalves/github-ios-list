@@ -151,6 +151,7 @@
                                             <outlet property="forksLabel" destination="Syu-mc-v2e" id="pfc-pn-eff"/>
                                             <outlet property="nameRepository" destination="Lh0-d5-A1m" id="R7y-wX-R64"/>
                                             <outlet property="startLabel" destination="GiQ-Mp-SNK" id="X9A-08-0SS"/>
+                                            <segue destination="eYB-UW-nMn" kind="show" identifier="pullRequestSegue" id="kvZ-aR-Ftc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -172,7 +173,6 @@
                     <navigationItem key="navigationItem" title="Repositories" id="INm-fx-JkL"/>
                     <connections>
                         <outlet property="tableView" destination="Krf-OK-oSo" id="Gat-CG-qb2"/>
-                        <segue destination="eYB-UW-nMn" kind="show" identifier="pullRequestSegue" id="vcl-o0-UBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
