@@ -67,13 +67,12 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
             fatalError("FetchResutController has error")
         }
         
-//        let repository = viewModel.repositories[indexPath.row]
         cell.authorLabel.text = repository.owner?.name
         cell.nameRepository.text = repository.name
         cell.descriptionRepository.text = ""
         cell.startLabel.text = repository.stars.description
         cell.forksLabel.text = repository.forks.description
-        
+        cell.backgroundColor = UIColor.darkGray
         return cell
     }
     
