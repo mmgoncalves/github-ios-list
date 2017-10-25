@@ -84,6 +84,7 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //MARK: repositoryViewModelDelegate
     func onFinish() {
+        self.initializeFetchResultController()
         tableView.reloadData()
     }
 
