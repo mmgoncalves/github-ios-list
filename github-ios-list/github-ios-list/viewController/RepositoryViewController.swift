@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Kingfisher
 
 class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate, NSFetchedResultsControllerDelegate {
 
@@ -72,7 +73,12 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.descriptionRepository.text = ""
         cell.startLabel.text = repository.stars.description
         cell.forksLabel.text = repository.forks.description
-        cell.backgroundColor = UIColor.darkGray
+        
+        if let imageString = repository.owner?.avatarUrl {
+            let url = URL(string: imageString)
+            cell.avatar.kf.setImage(with: url)
+        }
+        
         return cell
     }
     
