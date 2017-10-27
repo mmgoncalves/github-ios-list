@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Kingfisher
 
-class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate, NSFetchedResultsControllerDelegate {
+class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ServiceDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     

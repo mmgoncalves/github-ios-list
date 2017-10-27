@@ -27,7 +27,7 @@ class RepositoryViewModelTest: XCTestCase {
     }
     
     func test_should_fetch_repositories_and_save() {
-        let _ = self.viewModel.getRepositories()
+        
     }
  
     

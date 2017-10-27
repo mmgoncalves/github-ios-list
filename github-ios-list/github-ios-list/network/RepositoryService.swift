@@ -9,6 +9,10 @@
 import CoreData
 import Alamofire
 
+protocol ServiceDelegate {
+    func onFinish() -> Void
+}
+
 struct Service {
     
     static func getRepository(withPage page: Int, context: NSManagedObjectContext, completion: @escaping (_ error: AppError?) -> Void) {

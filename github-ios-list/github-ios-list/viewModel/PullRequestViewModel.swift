@@ -17,4 +17,9 @@ class PullRequestViewModel {
         self.managedObjectContext = context
         self.repository = repository
     }
+    
+    func getPullRequest() {
+        
+    }
+    
 }
