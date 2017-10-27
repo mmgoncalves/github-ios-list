@@ -27,6 +27,7 @@
 		C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366769D1F744D3800E4C094 /* PullRequestDAO.swift */; };
 		C38089181F7FEFE800F8FE80 /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38089171F7FEFE800F8FE80 /* NSManagedObjectContext+Additions.swift */; };
 		C38AB6CF1F9A413500156F13 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38AB6CE1F9A413500156F13 /* Generic.swift */; };
+		C3A6D55D1FA3B7B600501789 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6D55C1FA3B7B600501789 /* Route.swift */; };
 		C3A74B1B1F7490AA00D4450E /* RepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1A1F7490AA00D4450E /* RepositoryTest.swift */; };
 		C3A74B1D1F749A1800D4450E /* JSONRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1C1F749A1800D4450E /* JSONRepository.swift */; };
 		C3A74B1F1F749A4600D4450E /* JSONPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A74B1E1F749A4600D4450E /* JSONPullRequest.swift */; };
@@ -96,6 +97,7 @@
 		C366769D1F744D3800E4C094 /* PullRequestDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDAO.swift; sourceTree = "<group>"; };
 		C38089171F7FEFE800F8FE80 /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
 		C38AB6CE1F9A413500156F13 /* Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Generic.swift; path = "github-ios-list/Generic.swift"; sourceTree = SOURCE_ROOT; };
+		C3A6D55C1FA3B7B600501789 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		C3A74B141F748B0D00D4450E /* PullRequestEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PullRequestEntity+CoreDataProperties.swift"; path = "github-ios-list/PullRequestEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C3A74B151F748B0D00D4450E /* PullRequestEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PullRequestEntity+CoreDataClass.swift"; path = "github-ios-list/PullRequestEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C3A74B161F748B0D00D4450E /* RepositoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RepositoryEntity+CoreDataProperties.swift"; path = "github-ios-list/RepositoryEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				C3CE9C5F1F832896005CBB3E /* RepositoryService.swift */,
+				C3A6D55C1FA3B7B600501789 /* Route.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				C366769E1F744D3800E4C094 /* PullRequestDAO.swift in Sources */,
 				C31FFD2B1FA14FD100015BF5 /* RepositoryViewController+DataSource.swift in Sources */,
 				C36676981F744CD700E4C094 /* RepositoryViewModel.swift in Sources */,
+				C3A6D55D1FA3B7B600501789 /* Route.swift in Sources */,
 				C38089181F7FEFE800F8FE80 /* NSManagedObjectContext+Additions.swift in Sources */,
 				C3A74B1F1F749A4600D4450E /* JSONPullRequest.swift in Sources */,
 				C3A74B241F74A92F00D4450E /* JSONRepositoryItem.swift in Sources */,

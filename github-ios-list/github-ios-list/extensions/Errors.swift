@@ -40,3 +40,24 @@ enum RepositoryError: AppError {
         }
     }
 }
+
+enum PullRequestError: AppError {
+    case parseToObject
+    case save(localizedError: String)
+    
+    var title: String {
+        switch self {
+        case .parseToObject, .save:
+            return "Error"
+        }
+    }
+    
+    var errorDescription: String? {
+        switch self {
+        case .parseToObject:
+            return "Error to try parse data to object"
+        case .save(let localizedError):
+            return "Error description: \(localizedError)"
+        }
+    }
+}
