@@ -63,7 +63,7 @@ struct Service {
                 do {
                     let jsonPullRequest = try JSONDecoder().decode([JSONPullRequest].self, from: data)
                     
-                    PullRequestDAO.save(pullRequests: jsonPullRequest, inContext: context) { error in
+                    PullRequestDAO.save(pullRequests: jsonPullRequest, repository: repository, inContext: context) { error in
                         if let error = error {
                             completion(PullRequestError.save(localizedError: error.localizedDescription))
                         } else {

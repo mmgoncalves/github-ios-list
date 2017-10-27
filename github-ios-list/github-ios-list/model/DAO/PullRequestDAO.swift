@@ -10,7 +10,7 @@ import CoreData
 
 class PullRequestDAO {
     
-    static func save(pullRequests: [JSONPullRequest], inContext: NSManagedObjectContext, completion: @escaping (_ error: Error?) -> Void) {
+    static func save(pullRequests: [JSONPullRequest], repository: RepositoryEntity, inContext: NSManagedObjectContext, completion: @escaping (_ error: Error?) -> Void) {
         let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         privateContext.parent = inContext
@@ -35,6 +35,7 @@ class PullRequestDAO {
                 owner.avatarUrl = pullRequest.user.avatar_url
                 
                 pullRequestEntity.owner = owner
+                pullRequestEntity.repository = repository
             }
             
             privateContext.saveSync { (error) in
@@ -55,9 +56,10 @@ class PullRequestDAO {
         }
     }
     
-    static func find(repositoryId: Int64, inContext: NSManagedObjectContext) -> [PullRequestEntity]? {
+    static func find(byRepository repository: RepositoryEntity, inContext: NSManagedObjectContext) -> [PullRequestEntity]? {
         let fetchRequest: NSFetchRequest<PullRequestEntity> = PullRequestEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "repositoryId = %@", argumentArray: [repositoryId])
+        let id = repository.id
+        fetchRequest.predicate = NSPredicate(format: "repositoryId = %@", argumentArray: [id])
         
         do {
             let pullRequests = try inContext.fetch(fetchRequest)
