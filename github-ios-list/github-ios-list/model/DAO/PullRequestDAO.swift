@@ -17,6 +17,8 @@ class PullRequestDAO {
         
         privateContext.performAndWait {
             
+            
+            
             for pullRequest in pullRequests {
                 let pullRequestEntity = PullRequestEntity(context: privateContext)
                 pullRequestEntity.id = pullRequest.id

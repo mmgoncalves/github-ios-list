@@ -26,13 +26,27 @@ class PullRequestDAOTest: XCTestCase {
         super.tearDown()
     }
     
+    private func createRepository() -> RepositoryEntity {
+        let repository = RepositoryEntity(context: self.context)
+        repository.id = 123321123321
+        repository.name = "test"
+        repository.forks = 123
+        repository.fullName = "test-full"
+        repository.page = 1
+        repository.stars = 123
+        
+        return repository
+    }
+    
     func test_should_save_pullRequest() {
         guard let _ = self.pullRequests else {
             XCTFail("PullRequests should not be nil")
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        let repository = self.createRepository()
+        
+        PullRequestDAO.save(pullRequests: self.pullRequests, repository: repository, inContext: self.context) { error in
             XCTAssertNil(error)
         }
     }
@@ -43,7 +57,9 @@ class PullRequestDAOTest: XCTestCase {
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        let repository = self.createRepository()
+        
+        PullRequestDAO.save(pullRequests: self.pullRequests, repository: repository, inContext: self.context) { error in
             XCTAssertNil(error)
             
             let allPullRquests = PullRequestDAO.all(inContext: self.context)
@@ -66,11 +82,13 @@ class PullRequestDAOTest: XCTestCase {
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        let repository = self.createRepository()
+        
+        PullRequestDAO.save(pullRequests: self.pullRequests, repository: repository, inContext: self.context) { error in
             XCTAssertNil(error)
             let repositoryId: Int64 = 22458259
             
-            let foundPullRequests = PullRequestDAO.find(repositoryId: repositoryId, inContext: self.context)
+            let foundPullRequests = PullRequestDAO.find(byRepository: repository, inContext: self.context)
             
             XCTAssertNotNil(foundPullRequests)
             XCTAssertEqual(foundPullRequests?.count, 2)
