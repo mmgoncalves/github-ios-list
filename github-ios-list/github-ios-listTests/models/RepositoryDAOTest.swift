@@ -52,7 +52,10 @@ class RepositoryDAOTest: XCTestCase {
             
             let repositories = RepositoryDAO.all(inContext: self.context)
             XCTAssertEqual(repositories?.count, 2)
+            
+            let firstRepositoryId = (repositories?.first?.id)!
+            let repository = RepositoryDAO.findOne(byId: firstRepositoryId, inContext: self.context)
+            XCTAssertEqual(firstRepositoryId, repository?.id)
         }
     }
-    
 }
