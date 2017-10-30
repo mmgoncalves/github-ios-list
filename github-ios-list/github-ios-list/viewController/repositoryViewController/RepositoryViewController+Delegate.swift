@@ -9,7 +9,7 @@
 import UIKit
 
 extension RepositoryViewController {
-    //MARK: repositoryViewModelDelegate
+    //MARK: ServiceDelegate
     func onFinish() {
         self.viewModel.initializeFetchResultController()
         tableView.reloadData()

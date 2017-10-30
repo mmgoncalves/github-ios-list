@@ -9,6 +9,10 @@
 import CoreData
 import Alamofire
 
+protocol ServiceDelegate {
+    func onFinish() -> Void
+}
+
 struct Service {
     
     static func getRepository(withPage page: Int, context: NSManagedObjectContext, completion: @escaping (_ error: AppError?) -> Void) {
@@ -59,7 +63,7 @@ struct Service {
                 do {
                     let jsonPullRequest = try JSONDecoder().decode([JSONPullRequest].self, from: data)
                     
-                    PullRequestDAO.save(pullRequests: jsonPullRequest, inContext: context) { error in
+                    PullRequestDAO.save(pullRequests: jsonPullRequest, repositoryId: repository.id, inContext: context) { error in
                         if let error = error {
                             completion(PullRequestError.save(localizedError: error.localizedDescription))
                         } else {

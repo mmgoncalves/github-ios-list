@@ -43,12 +43,15 @@ enum RepositoryError: AppError {
 
 enum PullRequestError: AppError {
     case parseToObject
+    case findRepository
     case save(localizedError: String)
     
     var title: String {
         switch self {
         case .parseToObject, .save:
             return "Error"
+        case .findRepository:
+            return "Repository not found"
         }
     }
     
@@ -58,6 +61,8 @@ enum PullRequestError: AppError {
             return "Error to try parse data to object"
         case .save(let localizedError):
             return "Error description: \(localizedError)"
+        case .findRepository:
+            return "Error to get repository."
         }
     }
 }

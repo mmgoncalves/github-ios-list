@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Kingfisher
 
-class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryViewModelDelegate, NSFetchedResultsControllerDelegate {
+class RepositoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ServiceDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class RepositoryViewController: UIViewController, UITableViewDelegate, UITableVi
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         self.managedObjectContext = appDelegate?.persistentContainer.viewContext
         self.viewModel = RepositoryViewModel(context: self.managedObjectContext)
-        self.viewModel.delegate = self
+        self.viewModel.serviceDelegate = self
         self.viewModel.fetchResultControllerDelegate = self
         
         self.viewModel.initializeFetchResultController()

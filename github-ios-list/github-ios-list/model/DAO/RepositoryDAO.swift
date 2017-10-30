@@ -51,4 +51,17 @@ class RepositoryDAO {
             return nil
         }
     }
+    
+    static func findOne(byId id: Int64, inContext: NSManagedObjectContext) -> RepositoryEntity? {
+        let fetchRequest: NSFetchRequest<RepositoryEntity> = RepositoryEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", argumentArray: [id])
+        
+        do {
+            let repositories = try inContext.fetch(fetchRequest) as [RepositoryEntity]
+            return repositories.first
+        } catch {
+            print("Error to find repository")
+            return nil
+        }
+    }
 }

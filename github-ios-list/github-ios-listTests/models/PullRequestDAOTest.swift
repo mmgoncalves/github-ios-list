@@ -14,11 +14,19 @@ class PullRequestDAOTest: XCTestCase {
     
     var context: NSManagedObjectContext!
     var pullRequests: [JSONPullRequest]!
+    var repository: RepositoryEntity!
     
     override func setUp() {
         super.setUp()
         self.context = CoreDataHelper.setUpInMemoryManagedObjectContext()
         self.pullRequests = StubPullRequest.getPullRequests()
+        
+        guard let repository = StubRepository.getRepositoryEntity(context: self.context) else {
+            XCTFail("Repository should not be nil")
+            return
+        }
+        
+        self.repository = repository
     }
     
     override func tearDown() {
@@ -32,7 +40,7 @@ class PullRequestDAOTest: XCTestCase {
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        PullRequestDAO.save(pullRequests: self.pullRequests, repositoryId: self.repository.id, inContext: self.context) { error in
             XCTAssertNil(error)
         }
     }
@@ -43,7 +51,7 @@ class PullRequestDAOTest: XCTestCase {
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        PullRequestDAO.save(pullRequests: self.pullRequests, repositoryId: self.repository.id, inContext: self.context) { error in
             XCTAssertNil(error)
             
             let allPullRquests = PullRequestDAO.all(inContext: self.context)
@@ -54,9 +62,9 @@ class PullRequestDAOTest: XCTestCase {
             XCTAssertNotNil(allPullRquests?.first?.title)
             XCTAssertNotNil(allPullRquests?.first?.url)
             XCTAssertNotNil(allPullRquests?.first?.body)
-            XCTAssertNotNil(allPullRquests?.first?.repositoryId)
             XCTAssertNotNil(allPullRquests?.first?.createdAt)
             XCTAssertNotNil(allPullRquests?.first?.owner)
+            XCTAssertNotNil(allPullRquests?.first?.repository)
         }
     }
     
@@ -66,15 +74,14 @@ class PullRequestDAOTest: XCTestCase {
             return
         }
         
-        PullRequestDAO.save(pullRequests: self.pullRequests, inContext: self.context) { error in
+        PullRequestDAO.save(pullRequests: self.pullRequests, repositoryId: self.repository.id, inContext: self.context) { error in
             XCTAssertNil(error)
-            let repositoryId: Int64 = 22458259
-            
-            let foundPullRequests = PullRequestDAO.find(repositoryId: repositoryId, inContext: self.context)
+
+            let foundPullRequests = PullRequestDAO.find(byRepository: self.repository, inContext: self.context)
             
             XCTAssertNotNil(foundPullRequests)
             XCTAssertEqual(foundPullRequests?.count, 2)
-            XCTAssertEqual(foundPullRequests?.first?.repositoryId, repositoryId)
+            XCTAssertEqual(foundPullRequests?.first?.repository?.id, self.repository.id)
         }
     }
     

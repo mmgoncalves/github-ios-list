@@ -9,10 +9,6 @@
 import CoreData
 import Alamofire
 
-protocol RepositoryViewModelDelegate {
-    func onFinish() -> Void
-}
-
 class RepositoryViewModel {
     
     var managedObjectContext: NSManagedObjectContext!
@@ -21,7 +17,7 @@ class RepositoryViewModel {
     var fetchResultController: NSFetchedResultsController<NSFetchRequestResult>!
     var fetchResultControllerDelegate: NSFetchedResultsControllerDelegate!
     
-    var delegate: RepositoryViewModelDelegate?
+    var serviceDelegate: ServiceDelegate?
 
     required init?(context: NSManagedObjectContext) {
         self.managedObjectContext = context
@@ -34,7 +30,7 @@ class RepositoryViewModel {
         if Generic.isConnectedToNetwork() {
             Service.getRepository(withPage: 0, context: self.managedObjectContext) { error in
                 if error == nil {
-                    self.delegate?.onFinish()
+                    self.serviceDelegate?.onFinish()
                 }
             }
         }
