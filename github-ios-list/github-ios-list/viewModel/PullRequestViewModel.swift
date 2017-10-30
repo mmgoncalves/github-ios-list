@@ -27,7 +27,13 @@ class PullRequestViewModel {
     }
     
     func getPullRequest() {
-        
+        if Generic.isConnectedToNetwork() {
+            Service.getPullRequest(forRepository: self.repository, context: self.managedObjectContext) { (error) in
+                if error == nil {
+                    self.serviceDelegate.onFinish()
+                }
+            }
+        }
     }
     
 }

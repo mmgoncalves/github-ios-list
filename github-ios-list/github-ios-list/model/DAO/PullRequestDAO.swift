@@ -28,16 +28,15 @@ class PullRequestDAO {
                 pullRequestEntity.title = pullRequest.title
                 pullRequestEntity.url = pullRequest.url
                 pullRequestEntity.body = pullRequest.body
-                pullRequestEntity.repositoryId = pullRequest.repo.id
                 
                 if let date = Date.from(dateString: pullRequest.created_at) {
                     pullRequestEntity.createdAt = date
                 }
                 
                 let owner = OwnerEntity(context: privateContext)
-                owner.id = pullRequest.user.id
-                owner.name = pullRequest.user.login
-                owner.avatarUrl = pullRequest.user.avatar_url
+                owner.id = pullRequest.head.user.id
+                owner.name = pullRequest.head.user.login
+                owner.avatarUrl = pullRequest.head.user.avatar_url
                 
                 pullRequestEntity.owner = owner
                 pullRequestEntity.repository = repository
