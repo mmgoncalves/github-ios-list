@@ -36,4 +36,18 @@ class PullRequestViewModel {
         }
     }
     
+    func initializeFethResultController() {
+        let request = NSFetchRequest<PullRequestEntity>(entityName: "PullRequestEntity")
+        let sortByNumber = NSSortDescriptor(key: "number", ascending: false)
+        
+        request.sortDescriptors = [sortByNumber]
+        fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil) as! NSFetchedResultsController<NSFetchRequestResult>
+        
+        do {
+            try fetchResultController.performFetch()
+        } catch {
+            print(error)
+        }
+    }
+    
 }

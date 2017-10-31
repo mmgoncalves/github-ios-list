@@ -14,6 +14,7 @@ struct JSONPullRequest: Codable {
     var url: String
     var body: String
     var title: String
+    var number: Int64
     var head: Head
 }
 

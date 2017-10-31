@@ -62,6 +62,7 @@ class PullRequestDAOTest: XCTestCase {
             XCTAssertNotNil(allPullRquests?.first?.title)
             XCTAssertNotNil(allPullRquests?.first?.url)
             XCTAssertNotNil(allPullRquests?.first?.body)
+            XCTAssertNotNil(allPullRquests?.first?.number)
             XCTAssertNotNil(allPullRquests?.first?.createdAt)
             XCTAssertNotNil(allPullRquests?.first?.owner)
             XCTAssertNotNil(allPullRquests?.first?.repository)
