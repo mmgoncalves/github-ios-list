@@ -36,4 +36,9 @@ class PullRequestViewModel {
         }
     }
     
+    func initializeFethResultController() {
+        let request = NSFetchRequest<PullRequestEntity>(entityName: "PullRequestEntity")
+        
+    }
+    
 }

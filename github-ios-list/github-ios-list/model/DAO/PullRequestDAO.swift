@@ -28,6 +28,7 @@ class PullRequestDAO {
                 pullRequestEntity.title = pullRequest.title
                 pullRequestEntity.url = pullRequest.url
                 pullRequestEntity.body = pullRequest.body
+                pullRequestEntity.number = pullRequest.number
                 
                 if let date = Date.from(dateString: pullRequest.created_at) {
                     pullRequestEntity.createdAt = date

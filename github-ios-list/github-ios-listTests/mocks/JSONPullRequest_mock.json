@@ -1,6 +1,7 @@
  [{
   "url": "https://api.github.com/repos/Alamofire/Alamofire/pulls/2271",
   "id": 140723716,
+  "number": 321,
   "title": "Reorganize the README.md file",
   "body": "### Issue Link :link: \r\n- [#2223](https://github.com/Alamofire/Alamofire/issues/2223)\r\n\r\n### Goals :soccer:\r\n- Reorganize the README.\r\n\r\n### Implementation Details :construction:\r\n- Separated Usage & Advanced Usage sections into individual markdown files.",
   "created_at": "2017-09-13T02:44:14Z",
@@ -27,6 +28,7 @@
   {
   "url": "https://api.github.com/repos/Alamofire/Alamofire/pulls/2265",
   "id": 139034869,
+  "number": 123,
   "title": "Decodable response serialization and major refactor",
   "body": "### Issue Link :link:\r\n#2180\r\n\r\n### Goals :soccer:\r\nThe primary goal of the PR is to add response serializers that use `JSONDecoder` and `PropertyListDecoder` to generically decode responses. However, that lead to a major refactor of the response serialization protocols and their implementations.\r\n\r\n### Implementation Details :construction:\r\nFunctionally, the serializers are the same, they've just been encapsulated into classes, rather than being generated closures. This allows they to be more easily used, and the awkward extensions on `Request` that generated the closures have been removed. Also, the serializations protocols have had their requirements changed from a serialization closure to a function. This allows for far less awkward usage, as well as providing superior semantics with argument labels. \r\n\r\n### Testing Details :mag:\r\nTests have been added for the decodable serializers and response methods. Additionally, some of the tests have been refactored.\r\n",
   "created_at": "2017-09-03T04:01:57Z",
